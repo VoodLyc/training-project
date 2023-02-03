@@ -74,11 +74,30 @@ body {
     border-radius: 8px;
     white-space: nowrap;
     background-color: transparent;
+    /* background-color: transparent;*/
+}
+
+.navbar-button:hover {
+    color: #969eab;
+}
+
+.navbar-buttonselected {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 18px 10px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    background-color: #277dff;
+    /* background-color: transparent;*/
 }
 
 .navbar-container {
     padding-top: 20px;
-    width: 60%;
+    width: 62%;
     display: flex;
     align-items: flex-start;
 }
