@@ -25,7 +25,7 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    width: 250px;
+    width: 15%;
     border-right: 1px solid rgba(0, 0, 0, .08);
     background-color: #ffffff;
     display: flex;
@@ -63,18 +63,23 @@ body {
     list-style: none;
 }
 
-.navbar-button {
+.navbar-button, .navbar-buttonselected {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #abb4c2;
-    border: none;
-    cursor: pointer;
+    margin-top: 20px;
     padding: 10px 18px 10px 10px;
+    border: none;
     border-radius: 8px;
+    cursor: pointer;
     white-space: nowrap;
     background-color: transparent;
     /* background-color: transparent;*/
+}
+
+.navbar-button {
+    color: #abb4c2;
+    background-color: transparent;
 }
 
 .navbar-button:hover {
@@ -82,17 +87,8 @@ body {
 }
 
 .navbar-buttonselected {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px 18px 10px 10px;
-    border-radius: 8px;
-    white-space: nowrap;
     background-color: #277dff;
-    /* background-color: transparent;*/
 }
 
 .navbar-notifications {
@@ -109,9 +105,8 @@ body {
 }
 
 .navbar-container {
-    padding-top: 20px;
-    width: 62%;
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
 }
 
@@ -176,3 +171,18 @@ body {
     width: 100%;
     background-color: #efefef;
 }
+
+.arrow {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    margin-left: 8px;
+    background-color: white;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 5px 5px -8px;
+}
+
