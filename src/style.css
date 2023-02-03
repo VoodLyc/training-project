@@ -34,7 +34,7 @@ body {
 }
 
 .name-container {
-    height: 100px;
+    height: 120px;
     width: 70%;
     display: flex;
     justify-content: center;
@@ -48,12 +48,13 @@ body {
     padding-top: 5px;
 }
 
+/* ~~Navbar */
+
 .navbar {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 107px;
-    height: 200px;
+    height: 100%;
     width: 100%;
     color: #abb4c2;
 }
@@ -75,9 +76,56 @@ body {
 }
 
 .navbar-icon {
-    font-size: 22px;
-    padding-right: 5px;
+    font-size: 24px;
+    padding-right: 8px;
+    padding-left: 52px;
 }
+
+.user-line {
+    width: 70%;
+    border-top: 1px solid rgba(0, 0, 0, .10);
+}
+
+.user-container {
+    height: 120px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.img-container {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-img {
+    width: 100%;
+    height: 100%;
+}
+
+.user-details {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+.user-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.user-title {
+    font-size: 10px;
+}
+
+/* Navbar~~ */
 
 .page-container {
     height: 100%;
