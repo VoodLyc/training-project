@@ -1,6 +1,12 @@
 let menu = document.querySelector('.menu')
 let arrow = document.querySelector('.arrow')
 let appName = document.querySelector('.menu__name__label')
+let buttonsContainer = document.querySelector('.navbar__buttons-container')
+let buttons = document.querySelectorAll('navbar__button')
+let selectedButton = 'navbar-btn-1'
+
+console.log(selectedButton)
+
 
 const collapse = () => {
     arrow.classList.toggle('arrow--right')
@@ -17,4 +23,23 @@ const collapse = () => {
     }
  }
 
+ const selectButton = (e) => {
+    if(e.target.classList.contains('navbar__button')) {
+        if (selectedButton != e.target.id) {
+            e.target.classList.toggle('navbar__button--selected')
+            document.getElementById(selectedButton).classList.toggle('navbar__button--selected')
+            selectedButton = e.target.id
+        }
+    }
+    else if(e.target.parentNode.classList.contains('navbar__button')) {
+        if (selectedButton != e.target.parentNode.id) {
+            e.target.parentNode.classList.toggle('navbar__button--selected')
+            document.getElementById(selectedButton).classList.toggle('navbar__button--selected')
+            selectedButton = e.target.parentNode.id
+        }
+    }
+ }
+
 arrow.addEventListener('click', collapse)
+buttonsContainer.addEventListener('click', selectButton)
+

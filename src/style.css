@@ -77,8 +77,6 @@ body {
     font-weight: bold;
 }
 
-/* ~~Navbar */
-
 .navbar {
     display: flex;
     flex-direction: column;
@@ -88,7 +86,7 @@ body {
     color: #abb4c2;
 }
 
-.navbar__button, .navbar__button--selected {
+.navbar__button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -113,6 +111,15 @@ body {
 .navbar__button--selected {
     color: white;
     background-color: #277dff;
+}
+
+.navbar__button--selected:hover {
+    color: #ebebeb;
+}
+
+.navbar__button--selected .navbar__notifications {
+    background-color: white;
+    color: #277dff;
 }
 
 .navbar__notifications {
@@ -182,8 +189,6 @@ body {
 .user__details__title {
     font-size: 10px;
 }
-
-/* Navbar~~ */
 
 .main-content {
     height: 100%;
