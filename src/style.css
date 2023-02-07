@@ -31,6 +31,29 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.5s ease;
+}
+
+.menu--collapsed {
+    width: 5%;
+}
+
+.menu--collapsed .navbar__button__label, .menu--collapsed .user__details, .menu--collapsed .navbar__notifications {
+    display: none;
+}
+
+.menu--collapsed .navbar__buttons-container {
+    align-items: center;
+}
+
+.menu--collapsed .navbar__button, .menu--collapsed .navbar__button--selected {
+    padding: 10px;
+}
+
+.menu--collapsed .menu__name__label {
+    color: #277dff;
+    font-size: 42px;
+    font-weight: normal;
 }
 
 .menu__line {
@@ -47,7 +70,7 @@ body {
     align-items: center;
 }
 
-.menu__name__text {
+.menu__name__label {
     padding-top: 5px;
     font-size: 25px;
     font-weight: bold;
@@ -62,10 +85,6 @@ body {
     height: 100%;
     width: 100%;
     color: #abb4c2;
-}
-
-.navbar li {
-    list-style: none;
 }
 
 .navbar__button, .navbar__button--selected {
@@ -114,14 +133,14 @@ body {
     align-items: flex-start;
 }
 
-.navbar__button__text {
+.navbar__button__label {
     font-size: 12px;
     font-weight: bold;
+    padding-left: 8px;
 }
 
 .navbar__button__icon {
     font-size: 24px;
-    padding-right: 8px;
 }
 
 .user {
@@ -191,5 +210,9 @@ body {
     font-size: 24px;
     background-color: white;
     cursor: pointer;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 5px 5px -8px;
+    transition: 0.5s ease;
+}
+
+.arrow--right {
+    transform: rotate(180deg);
 }
