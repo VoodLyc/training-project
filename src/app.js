@@ -1,41 +1,48 @@
-let menu = document.querySelector('.menu')
-let arrow = document.querySelector('.arrow')
-let appName = document.querySelector('.menu__name__label')
-let buttonsContainer = document.querySelector('.navbar__buttons-container')
-let selectedButton = 'navbar-btn-1'
+let sideMenu = document.querySelector('.menu') // The container of the side menu
+let collapseButton = document.querySelector('.arrow') // The button that collapses the side menu
+let sideMenuName = document.querySelector('.menu-name__label') // The name of the side menu
+let buttonsContainer = document.querySelector('.navbar__buttons-container') // The container of the nav buttons in the side menu
+let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected.
 
+const MENU_NAME = 'Coopang' // The name of the side menu.
 
-const collapse = () => {
-    arrow.classList.toggle('arrow--right')
-    menu.classList.toggle('menu--collapsed')
+function collapseSideMenu() {
+    collapseButton.classList.toggle('arrow--right')
+    sideMenu.classList.toggle('menu--collapsed')
 
-    appName.classList.toggle('bx')
-    appName.classList.toggle('bxs-ghost')
+    // Hides the name in the side menu.
+    sideMenuName.classList.toggle('bx')
+    sideMenuName.classList.toggle('bxs-ghost')
 
-    if (appName.textContent.length > 0)
-        appName.textContent = ''
-    else
-        appName.textContent = 'Coopang'
-
-}
-
-const selectButton = (e) => {
-    if (e.target.classList.contains('navbar-button')) {
-        if (selectedButton != e.target.id) {
-            e.target.classList.toggle('navbar-button--selected')
-            document.getElementById(selectedButton).classList.toggle('navbar-button--selected')
-            selectedButton = e.target.id
-        }
+    if (sideMenuName.textContent) {
+        sideMenuName.textContent = ''
     }
-    else if (e.target.parentNode.classList.contains('navbar-button')) {
-        if (selectedButton != e.target.parentNode.id) {
-            e.target.parentNode.classList.toggle('navbar-button--selected')
-            document.getElementById(selectedButton).classList.toggle('navbar-button--selected')
-            selectedButton = e.target.parentNode.id
-        }
+    else {
+        sideMenuName.textContent = MENU_NAME
     }
 }
 
-arrow.addEventListener('click', collapse)
-buttonsContainer.addEventListener('click', selectButton)
+function handleButtonSelect(event) {
+    const isButton = event.target.classList.contains('navbar-button') // Checks if the element that triggers the event is a button.
+    const parentIsButton = event.target.parentNode.classList.contains('navbar-button') // Checks if the parent of the element that triggers the event is a button.
+    
+    if (isButton) { 
+        if (selectedButton != event.target.id) {
+            toggleButtonStyle(event.target)
+        }
+    }
+    else if (parentIsButton) {
+        if (selectedButton != event.target.parentNode.id) {
+            toggleButtonStyle(event.target.parentNode)
+        }
+    }
+}
 
+function toggleButtonStyle(element) {
+    element.classList.toggle('navbar-button--selected')
+    document.getElementById(selectedButton).classList.toggle('navbar-button--selected')
+    selectedButton = element.id
+}
+
+collapseButton.addEventListener('click', collapseSideMenu)
+buttonsContainer.addEventListener('click', handleButtonSelect)
