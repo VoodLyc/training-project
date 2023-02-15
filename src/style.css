@@ -9,8 +9,8 @@
 
 body {
     background: #dce0ed;
-    height: 85vh;
-    margin: 70px;
+    height: 100vh;
+    padding: 70px;
 }
 
 .app-container {
@@ -23,7 +23,7 @@ body {
 
 .menu {
     height: 100%;
-    width: 15%;
+    width: 300px;
     border-right: 1px solid rgba(0, 0, 0, .08);
     background-color: #ffffff;
     display: flex;
@@ -40,7 +40,7 @@ body {
 }
 
 .menu--collapsed {
-    width: 5%;
+    width: 80px;
 }
 
 .menu--collapsed .navbar-button__label,
