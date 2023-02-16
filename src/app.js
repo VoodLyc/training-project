@@ -1,8 +1,11 @@
+import { getPokemon } from "./pokemonService.js"
+
 let sideMenu = document.querySelector('.menu') // The container of the side menu
 let collapseButton = document.querySelector('.arrow') // The button that collapses the side menu
 let sideMenuName = document.querySelector('.menu-name__label') // The name of the side menu
 let buttonsContainer = document.querySelector('.navbar__buttons-container') // The container of the nav buttons in the side menu
 let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected.
+let pokemon = getPokemonData(19) // The currently displayed Pokemon.
 
 const MENU_NAME = 'Coopang' // The name of the side menu.
 
@@ -25,8 +28,8 @@ function collapseSideMenu() {
 function handleButtonSelect(event) {
     const isButton = event.target.classList.contains('navbar-button') // Checks if the element that triggers the event is a button.
     const parentIsButton = event.target.parentNode.classList.contains('navbar-button') // Checks if the parent of the element that triggers the event is a button.
-    
-    if (isButton) { 
+
+    if (isButton) {
         if (selectedButton != event.target.id) {
             toggleButtonStyle(event.target)
         }
@@ -44,5 +47,30 @@ function toggleButtonStyle(element) {
     selectedButton = element.id
 }
 
+function getPokemonData(pokemonId) {
+    getPokemon(pokemonId)
+        .then((data) => {
+            pokemon = data
+            setPokemonAttributes()
+        })
+        .catch((e) => {
+            console.log(e)
+        })
+}
+
+function setPokemonAttributes() {
+    let pokemonName = document.querySelector('#pokemonName')
+    let pokemonType = document.querySelector('#pokemonType')
+    let pokemonAbility = document.querySelector('#pokemonAbility')
+
+    pokemonName.textContent = CapitalizeText(pokemon.name)
+    pokemonType.textContent = pokemon.types[0].type.name.toUpperCase()
+    pokemonAbility.textContent = CapitalizeText(pokemon.abilities[0].ability.name)
+}
+
+function CapitalizeText(text) {
+    // Returns a text with every first letter of each word capitalized.
+    return text.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.substring(1)).join(' ')
+}
 collapseButton.addEventListener('click', collapseSideMenu)
 buttonsContainer.addEventListener('click', handleButtonSelect)
