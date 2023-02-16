@@ -5,64 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Coopang</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" href="../images/logo.png">
 </head>
 
 <body>
     <div class="app-container">
         <div class="menu">
-            <div class="menu__name">
-                <span class="menu__name__text">Coopang</span>
+            <div class="menu-name">
+                <span class="menu-name__label">Coopang</span>
             </div>
-            <hr class="menu__line">
-            <!-- ~~Navbar-->
-            <div class="navbar">
+            <hr>
+            <nav class="navbar">
                 <div class="navbar__buttons-container">
-                    <button class="navbar__button">
-                        <i class='bx bx-grid-alt navbar__button__icon'></i>
-                        <span class="navbar__button__text">HOME</span>
+                    <button id="navbar-btn-0" class="navbar-button">
+                        <i class='bx bx-grid-alt navbar-button__icon'></i>
+                        <span class="navbar-button__label">HOME</span>
                     </button>
-                    <button class="navbar__button--selected">
-                        <i class='bx bx-cart-alt navbar__button__icon'></i>
-                        <span class="navbar__button__text">FISH STORE</span>
+                    <button id="navbar-btn-1" class="navbar-button navbar-button--selected">
+                        <i class='bx bx-cart-alt navbar-button__icon'></i>
+                        <span class="navbar-button__label">FISH STORE</span>
                     </button>
-                    <button class="navbar__button">
-                        <i class='bx bx-bookmark-minus navbar__button__icon'></i>
-                        <span class="navbar__button__text">SAVED ITEMS</span>
+                    <button id="navbar-btn-2" class="navbar-button">
+                        <i class='bx bx-bookmark-minus navbar-button__icon'></i>
+                        <span class="navbar-button__label">SAVED ITEMS</span>
                     </button>
-                    <button class="navbar__button">
-                        <i class='bx bx-bell navbar__button__icon'></i>
-                        <span class="navbar__button__text">NOTIFICATIONS</span>
+                    <button id="navbar-btn-3" class="navbar-button">
+                        <i class='bx bx-bell navbar-button__icon'></i>
+                        <span class="navbar-button__label">NOTIFICATIONS</span>
                     </button>
-                    <button class="navbar__button">
-                        <i class='bx bx-cog navbar__button__icon'></i>
-                        <span class="navbar__button__text">SETTINGS</span>
-                        <div class="navbar__notifications">2</div>
+                    <button id="navbar-btn-4" class="navbar-button">
+                        <i class='bx bx-cog navbar-button__icon'></i>
+                        <span class="navbar-button__label">SETTINGS</span>
+                        <div class="navbar-button__notifications">2</div>
                     </button>
-                    <button class="navbar__button">
-                        <i class='bx bx-help-circle navbar__button__icon'></i>
-                        <span class="navbar__button__text">HELP</span>
+                    <button id="navbar-btn-5" class="navbar-button">
+                        <i class='bx bx-help-circle navbar-button__icon'></i>
+                        <span class="navbar-button__label">HELP</span>
                     </button>
                 </div>
-            </div>
-            <hr class="menu__line">
+            </nav>
+            <hr>
             <div class="user">
-                <div class="user__img-container">
+                <div class="user-picture">
                     <img src="https://images.generated.photos/3MPyvhym-oYQPHqv4u9VSC5s-LGb03Ay7PhKOikovOs/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NjI3ODU4LmpwZw.jpg"
-                        class="user__img">
+                        class="user-picture__img"
+                        alt="User profile picture">
                 </div>
-                <div class="user__details">
-                    <span class="user__details__name">Zaki Deanra</span>
-                    <span class="user__details__title">Cupang Collectors</span>
+                <div class="user-details">
+                    <span class="user-details__name">Zaki Deanra</span>
+                    <span class="user-details__title">Cupang Collectors</span>
                 </div>
             </div>
-            <!-- Navbar~~ -->
         </div>
         <div class="main-content">
             <div class="main-content__header">
-                <i class='bx bx-chevron-left arrow'></i>
+                <button class="arrow">
+                    <i class='bx bx-chevron-left'></i>
+                </button>                
             </div>
         </div>
     </div>

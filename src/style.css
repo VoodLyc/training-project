@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap');
 
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
     font-family: 'Noto Sans', sans-serif;
@@ -9,7 +10,7 @@
 body {
     background: #dce0ed;
     height: 100vh;
-    margin: 70px 70px 70px 70px;
+    padding: 70px;
 }
 
 .app-container {
@@ -21,25 +22,49 @@ body {
 }
 
 .menu {
-    position: relative;
-    top: 0;
-    left: 0;
     height: 100%;
-    width: 15%;
+    width: 300px;
     border-right: 1px solid rgba(0, 0, 0, .08);
     background-color: #ffffff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: 0.5s ease;
+    min-width: fit-content;
 }
 
-.menu__line {
+.menu hr {
     width: 70%;
     color: transparent;
     border-top: 1px solid rgba(0, 0, 0, .10);
 }
 
-.menu__name {
+.menu--collapsed {
+    width: 80px;
+}
+
+.menu--collapsed .navbar-button__label,
+.menu--collapsed .user-details,
+.menu--collapsed .navbar-button__notifications {
+    display: none;
+}
+
+.menu--collapsed .navbar__buttons-container {
+    align-items: center;
+}
+
+.menu--collapsed .navbar-button,
+.menu--collapsed .navbar-button--selected {
+    padding: 10px;
+}
+
+.menu--collapsed .menu-name__label {
+    color: #277dff;
+    font-size: 42px;
+    font-weight: normal;
+}
+
+.menu-name {
     height: 120px;
     width: 100%;
     display: flex;
@@ -47,13 +72,11 @@ body {
     align-items: center;
 }
 
-.menu__name__text {
+.menu-name__label {
     padding-top: 5px;
     font-size: 25px;
     font-weight: bold;
 }
-
-/* ~~Navbar */
 
 .navbar {
     display: flex;
@@ -64,38 +87,55 @@ body {
     color: #abb4c2;
 }
 
-.navbar li {
-    list-style: none;
+.navbar__buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.navbar__button, .navbar__button--selected {
+.navbar-button {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: #abb4c2;
+    cursor: pointer;
+    white-space: nowrap;
+    background-color: transparent;
     margin-top: 20px;
     padding: 10px 18px 10px 10px;
     border: none;
     border-radius: 8px;
-    cursor: pointer;
-    white-space: nowrap;
-    background-color: transparent;
 }
 
-.navbar__button {
-    color: #abb4c2;
-    background-color: transparent;
-}
-
-.navbar__button:hover {
+.navbar-button:hover {
     color: #969eab;
 }
 
-.navbar__button--selected {
+.navbar-button--selected {
     color: white;
     background-color: #277dff;
 }
 
-.navbar__notifications {
+.navbar-button--selected:hover {
+    color: #ebebeb;
+}
+
+.navbar-button--selected .navbar-button__notifications {
+    background-color: white;
+    color: #277dff;
+}
+
+.navbar-button__icon {
+    font-size: 24px;
+}
+
+.navbar-button__label {
+    font-size: 12px;
+    font-weight: bold;
+    padding-left: 8px;
+}
+
+.navbar-button__notifications {
     color: white;
     width: 22px;
     height: 22px;
@@ -108,22 +148,6 @@ body {
     background-color: #277dff;
 }
 
-.navbar__buttons-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.navbar__button__text {
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.navbar__button__icon {
-    font-size: 24px;
-    padding-right: 8px;
-}
-
 .user {
     height: 120px;
     width: 100%;
@@ -133,19 +157,19 @@ body {
     flex-direction: row;
 }
 
-.user__img-container {
+.user-picture {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     overflow: hidden;
 }
 
-.user__img {
+.user-picture__img {
     width: 100%;
     height: 100%;
 }
 
-.user__details {
+.user-details {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -154,16 +178,14 @@ body {
     margin-left: 10px;
 }
 
-.user__details__name {
+.user-details__name {
     font-size: 14px;
     font-weight: bold;
 }
 
-.user__details__title {
+.user-details__title {
     font-size: 10px;
 }
-
-/* Navbar~~ */
 
 .main-content {
     height: 100%;
@@ -184,12 +206,19 @@ body {
 .arrow {
     width: 30px;
     height: 30px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 24px;
-    background-color: white;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 2px 2px 5px -2px rgba(0, 0, 0, .1);
     cursor: pointer;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 5px 5px -8px;
+    background-color: white;
+    transition: 0.5s ease;
+}
+
+.arrow--right {
+    transform: rotate(180deg);
+    box-shadow: -2px -2px 5px -2px rgba(0, 0, 0, .1);
 }
