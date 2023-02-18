@@ -5,12 +5,14 @@ let collapseButton = document.querySelector('.arrow') // The button that collaps
 let sideMenuName = document.querySelector('.menu-name__label') // The name of the side menu
 let buttonsContainer = document.querySelector('.navbar__buttons-container') // The container of the nav buttons in the side menu
 let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected.
-let pokemon = getPokemonData(11) // The currently displayed Pokemon.
+let pokemon = getPokemonData(9) // The currently displayed Pokemon.
 let pokemonName = document.querySelector('#pokemonName')
 let pokemonType = document.querySelector('#pokemonType')
 let pokemonAbility = document.querySelector('#pokemonAbility')
 let pokemonHeight = document.querySelector('#pokemonHeight')
 let pokemonExperience = document.querySelector('#pokemonExperience')
+let pokemonImg = document.querySelector('#pokemonImg')
+let pokemonCardName = document.querySelector('#pokemonCardName')
 
 const MENU_NAME = 'Coopang' // The name of the side menu.
 
@@ -69,6 +71,8 @@ function setPokemonAttributes() {
     pokemonAbility.textContent = CapitalizeText(pokemon.abilities[0].ability.name)
     pokemonHeight.textContent = pokemon.height
     pokemonExperience.textContent = pokemon.base_experience + ' Reviews'
+    pokemonImg.src = pokemon.sprites.front_default
+    pokemonCardName.textContent = CapitalizeText(pokemon.name) + ' ' + CapitalizeText(pokemon.types[0].type.name)
 }
 
 function CapitalizeText(text) {
