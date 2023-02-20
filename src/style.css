@@ -291,12 +291,12 @@ body {
     justify-self: center;
 }
 
-.element-details__attributes-info .item-1 .star{
+.element-details__attributes-info .item-1 i {
     color: #fcc500;
     font-size: 22px;
 }
 
-.element-details__attributes-info .item-1 .label {
+.element-details__attributes-info .item-1 span {
     color: #253262;
     font-size: 30px;
     font-weight: bold;
@@ -324,14 +324,25 @@ body {
     padding-bottom: 1px;
 }
 
-.name-card {
-    height: 150px;
-    width: 400px;
-    margin-left: 30px;
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, min-content);
+    grid-template-rows: repeat(2, min-content);
+    padding-left: 30px;
+    gap: 20px;
+
+}
+
+.card {
     background-color: white;
     border: 1px solid rgba(0, 0, 0, .07);
     border-radius: 10px;
     box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, .025);
+}
+
+.name-card {
+    height: 150px;
+    width: 400px;
 }
 
 .name-card__content {
@@ -378,4 +389,27 @@ body {
     background-color: #277dff;
     border-radius: 50%;
     cursor: pointer;
+}
+
+.attributes-card {
+    height: 200px;
+    width: 400px;
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.attributes-card__content {
+    display: grid;
+    grid-template-columns: repeat(3, min-content);
+    grid-template-rows: repeat(3, min-content);
+}
+
+.attributes-card .item-1 {
+    
+}
+
+.auction-card {
+    height: 370px;
+    width: 200px;
+    grid-row: span 2;
 }
