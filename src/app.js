@@ -6,15 +6,6 @@ let sideMenuName = document.querySelector('.menu-name__label') // The name of th
 let buttonsContainer = document.querySelector('.navbar__buttons-container') // The container of the nav buttons in the side menu
 let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected.
 let pokemon = getPokemonData(12) // The currently displayed Pokemon.
-let detailsPokemonName = document.querySelector('.pokemon-details__specie-info .pokemon-name')
-let detailsPokemonType = document.querySelector('.pokemon-details__specie-info .pokemon-type')
-let detailsPokemonAbility = document.querySelector('.pokemon-details__specie-info .pokemon-ability')
-let detailsPokemonHeight = document.querySelector('#detailsPokemonHeight')
-let detailsPokemonExperience = document.querySelector('#detailsPokemonExperience')
-let nameCardPokemonImg = document.querySelector('#nameCardPokemonImg')
-let nameCardPokemonName = document.querySelector('#nameCardPokemonName')
-let attributesCardPokemonHeight = document.querySelector('#attributesCardPokemonHeight')
-let attributesCardPokemonAge = document.querySelector('#attributesCardPokemonAge')
 
 const MENU_NAME = 'Coopang' // The name of the side menu.
 
@@ -67,16 +58,48 @@ function getPokemonData(pokemonId) {
         })
 }
 
-function setPokemonAttributes() {
+function setPokemonDetails() {
+    let detailsPokemonName = document.querySelector('.pokemon-details__specie-info .pokemon-name')
+    let detailsPokemonType = document.querySelector('.pokemon-details__specie-info .pokemon-type')
+    let detailsPokemonAbility = document.querySelector('.pokemon-details__specie-info .pokemon-ability')
+    let detailsPokemonHeight = document.querySelector('#detailsPokemonHeight')
+    let detailsPokemonExperience = document.querySelector('#detailsPokemonExperience')
+
     detailsPokemonName.textContent = CapitalizeText(pokemon.name)
     detailsPokemonType.textContent = pokemon.types[0].type.name.toUpperCase()
     detailsPokemonAbility.textContent = CapitalizeText(pokemon.abilities[0].ability.name)
     detailsPokemonHeight.textContent = pokemon.height
     detailsPokemonExperience.textContent = pokemon.base_experience + ' Reviews'
+}
+
+function setPokemonNameCard() {
+    let nameCardPokemonImg = document.querySelector('#nameCardPokemonImg')
+    let nameCardPokemonName = document.querySelector('#nameCardPokemonName')
+
     nameCardPokemonImg.src = pokemon.sprites.front_default
     nameCardPokemonName.textContent = CapitalizeText(pokemon.name) + ' ' + CapitalizeText(pokemon.types[0].type.name)
+}
+
+function setPokemonAttributesCard() {
+    let attributesCardPokemonHeight = document.querySelector('#attributesCardPokemonHeight')
+    let attributesCardPokemonAge = document.querySelector('#attributesCardPokemonAge')
+    let attributesCardPokemonPrice = document.querySelector('#attributesCardPokemonPrice')
     attributesCardPokemonHeight.textContent = pokemon.height
     attributesCardPokemonAge.textContent = pokemon.height + 13
+    attributesCardPokemonPrice.textContent = '$' + (pokemon.weight + 20)
+}
+
+function setPokemonAuctionCard() {
+    let auctionCardPokemonImg = document.querySelector('#auctionCardPokemonImg')
+
+    auctionCardPokemonImg.src = pokemon.sprites.back_default
+}
+
+function setPokemonAttributes() {
+    setPokemonDetails()
+    setPokemonNameCard()
+    setPokemonAttributesCard()
+    setPokemonAuctionCard()
 }
 
 function CapitalizeText(text) {

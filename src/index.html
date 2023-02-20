@@ -86,7 +86,7 @@
             <div class="cards-container">
                 <div class="card name-card">
                     <div class="name-card__content">
-                        <img id="nameCardPokemonImg">
+                        <img id="nameCardPokemonImg" alt="front image of the pokemon">
                         <span id="nameCardPokemonName"></span>
                         <i class="fa-sharp fa-solid fa-circle-play"></i>
                     </div>
@@ -94,8 +94,8 @@
                 <div class="card attributes-card">
                     <div class="attributes-card__content">
                         <div class="attributes-card__header">
-                            <span class="title">INFORMATIONS</span>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                            <span class="card-header-title">INFORMATIONS</span>
+                            <i class="fa-solid fa-ellipsis-vertical dot-icon"></i>
                         </div>
                         <div class="attributes-card__attribute-cell">
                             <span class="title">LENGHT</span>
@@ -108,16 +108,28 @@
                         <div class="attributes-card__bid">
                             <i class='bx bx-info-square'></i>
                             <span class="title">Highest Bid</span>
-                            <span class="price">$220</span>
+                            <span id="attributesCardPokemonPrice"class="price"></span>
                             <span class="legend">You can bid bigger than this number</span>
                         </div>
                         <div class="attributes-card__attribute-cell">
                             <span class="title">GENDER</span>
                             <b id="attributesCardPokemonGender" class="value">Male</b>
                         </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">TIME LEFT</span>
+                            <progress max="10" value="7" class="progress-bar"></progress>
+                            <b id="attributesCardPokemonTime" class="value value--small">21hr left</b>
+                        </div>
                     </div>
                 </div>
                 <div class="card auction-card">
+                    <div class="auction-card__header">
+                        <div class="title-container">
+                            <span class="card-header-title">AUCTION</span>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical icon dot-icon"></i>
+                    </div>
+                    <img id="auctionCardPokemonImg" alt="back image of the pokemon">
                 </div>
             </div>
         </div>

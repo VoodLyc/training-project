@@ -13,6 +13,11 @@ body {
     padding: 70px;
 }
 
+img {
+    pointer-events: none;
+    user-select: none;
+}
+
 .app-container {
     height: 100%;
     width: 100%;
@@ -358,9 +363,6 @@ body {
     height: 150px;
     grid-row: span 3;
     justify-self: center;
-    overflow: hidden;
-    pointer-events: none;
-    
 }
 
 .name-card__content span {
@@ -372,7 +374,7 @@ body {
     overflow-wrap: break-word;
     font-size: 16px;
     color: #253262;
-    
+
 }
 
 .name-card__content i {
@@ -415,13 +417,13 @@ body {
     grid-column: span 3;
 }
 
-.attributes-card__header .title {
+.card-header-title {
     font-size: 10px;
     font-weight: bold;
     color: #253262;
 }
 
-.attributes-card__header i {
+.dot-icon {
     color: #e1e1e3;
     cursor: pointer;
 }
@@ -440,6 +442,36 @@ body {
 .attributes-card__attribute-cell .value {
     font-size: 18px;
     color: #253262;
+}
+
+.attributes-card__attribute-cell .value--small {
+    font-size: 8px;
+}
+
+.attributes-card__attribute-cell .progress-bar {
+    width: 80px;
+    height: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    accent-color: #277dff;
+    border-radius: 40px;
+    border: none;
+    background-color: #dce0ed;
+}
+
+.attributes-card__attribute-cell .progress-bar::-webkit-progress-bar {
+    width: 80px;
+    accent-color: #277dff;
+}
+
+.attributes-card__attribute-cell .progress-bar::-webkit-progress-value {
+    width: 80px;
+    accent-color: #277dff;
+}
+
+.attributes-card__attribute-cell .progress-bar::-moz-progress-bar {
+    width: 80px;
+    background-color: #277dff;
 }
 
 .attributes-card__bid {
@@ -477,7 +509,30 @@ body {
 }
 
 .auction-card {
+    display: flex;
+    flex-direction: column;
     height: 370px;
     width: 200px;
     grid-row: span 2;
+}
+
+.auction-card__header {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.auction-card__header .title-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.auction-card__header .icon {
+    margin-right: 20px;
+}
+
+.actuion-card img {
+    width: 150px;
+    height: 150px;
 }
