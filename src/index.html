@@ -68,30 +68,54 @@
                     <i class='bx bx-chevron-left'></i>
                 </button>
             </div>
-            <div class="element-details">
-                <div class="element-details__specie-info">
-                    <span id="pokemonName" class="item-1"></span>
-                    <span id="pokemonType" class="item-2"></span>
-                    <span id="pokemonAbility" class="item-3"></span>
+            <div class="pokemon-details">
+                <div class="pokemon-details__specie-info">
+                    <span class="pokemon-name"></span>
+                    <span class="pokemon-type"></span>
+                    <span class="pokemon-ability"></span>
                 </div>
-                <div class="element-details__attributes-info">
-                    <div class="item-1">
+                <div class="pokemon-details__attributes-info">
+                    <div class="stars">
                         <i class='bx bxs-star'></i>
-                        <span id="pokemonHeight"></span>
+                        <span id="detailsPokemonHeight"></span>
                     </div>
-                    <button class="item-2">Save Item</button>
-                    <span id="pokemonExperience" class="item-3"></span>
+                    <button>Save Item</button>
+                    <span id="detailsPokemonExperience"></span>
                 </div>
             </div>
             <div class="cards-container">
                 <div class="card name-card">
                     <div class="name-card__content">
-                        <img id="pokemonImg" class="item-1">
-                        <span id="pokemonCardName" class="item-2"></span>
-                        <i class="fa-sharp fa-solid fa-circle-play item-3"></i>
+                        <img id="nameCardPokemonImg">
+                        <span id="nameCardPokemonName"></span>
+                        <i class="fa-sharp fa-solid fa-circle-play"></i>
                     </div>
                 </div>
                 <div class="card attributes-card">
+                    <div class="attributes-card__content">
+                        <div class="attributes-card__header">
+                            <span class="title">INFORMATIONS</span>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">LENGHT</span>
+                            <span class="value"><b id="attributesCardPokemonHeight"></b> cm</span>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">AGE</span>
+                            <span class="value"><b id="attributesCardPokemonAge"></b> month</span>
+                        </div>
+                        <div class="attributes-card__bid">
+                            <i class='bx bx-info-square'></i>
+                            <span class="title">Highest Bid</span>
+                            <span class="price">$220</span>
+                            <span class="legend">You can bid bigger than this number</span>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">GENDER</span>
+                            <b id="attributesCardPokemonGender" class="value">Male</b>
+                        </div>
+                    </div>
                 </div>
                 <div class="card auction-card">
                 </div>

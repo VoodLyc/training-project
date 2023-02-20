@@ -226,7 +226,7 @@ body {
     box-shadow: -2px -2px 5px -2px rgba(0, 0, 0, .1);
 }
 
-.element-details {
+.pokemon-details {
     height: 100px;
     width: 100%;
     min-width: fit-content;
@@ -235,7 +235,7 @@ body {
     align-items: center;
 }
 
-.element-details__specie-info {
+.pokemon-details__specie-info {
     height: 100%;
     min-width: fit-content;
     display: grid;
@@ -246,14 +246,14 @@ body {
     grid-template-rows: 50px 30px;
 }
 
-.element-details__specie-info .item-1 {
+.pokemon-details__specie-info .pokemon-name {
     grid-column: span 3;
     font-size: 30px;
     font-weight: bold;
     color: #253262;
 }
 
-.element-details__specie-info .item-2 {
+.pokemon-details__specie-info .pokemon-type {
     width: fit-content;
     height: fit-content;
     padding: 2px 8px;
@@ -265,7 +265,7 @@ body {
     background-color: #d8e4fb;
 }
 
-.element-details__specie-info .item-3 {
+.pokemon-details__specie-info .pokemon-ability {
     padding-left: 10px;
     padding-bottom: 1px;
     font-size: 13px;
@@ -273,7 +273,7 @@ body {
     color: #a0a4bc;
 }
 
-.element-details__attributes-info {
+.pokemon-details__attributes-info {
     height: 100%;
     min-width: fit-content;
     display: grid;
@@ -284,26 +284,26 @@ body {
     grid-template-rows: 50px 30px;
 }
 
-.element-details__attributes-info .item-1 {
+.pokemon-details__attributes-info .stars {
     display: flex;
     align-items: center;
     justify-content: center;
     justify-self: center;
 }
 
-.element-details__attributes-info .item-1 i {
+.pokemon-details__attributes-info .stars i {
     color: #fcc500;
     font-size: 22px;
 }
 
-.element-details__attributes-info .item-1 span {
+.pokemon-details__attributes-info .stars span {
     color: #253262;
     font-size: 30px;
     font-weight: bold;
     padding-left: 10px;
 }
 
-.element-details__attributes-info .item-2 {
+.pokemon-details__attributes-info button {
     color: white;
     background-color: #277dff;
     font-size: 12px;
@@ -317,7 +317,7 @@ body {
     box-shadow: 0px 10px 10px -2px rgba(0, 0, 0, .1);
 }
 
-.element-details__attributes-info .item-3 {
+.pokemon-details__attributes-info span {
     font-size: 13px;
     white-space: nowrap;
     color: #a0a4bc;
@@ -353,19 +353,17 @@ body {
     grid-template-rows: repeat(3, 1fr);
 }
 
-.name-card img {
+.name-card__content img {
     width: 150px;
     height: 150px;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.name-card .item-1 {
     grid-row: span 3;
     justify-self: center;
+    overflow: hidden;
+    pointer-events: none;
+    
 }
 
-.name-card .item-2 {
+.name-card__content span {
     justify-self: end;
     margin-top: 30px;
     margin-right: 30px;
@@ -377,7 +375,7 @@ body {
     
 }
 
-.name-card .item-3 {
+.name-card__content i {
     justify-self: end;
     margin-right: 30px;
     margin-top: 20px;
@@ -400,12 +398,82 @@ body {
 
 .attributes-card__content {
     display: grid;
-    grid-template-columns: repeat(3, min-content);
-    grid-template-rows: repeat(3, min-content);
+    height: 100%;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
 }
 
-.attributes-card .item-1 {
-    
+.attributes-card__header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding-left: 42px;
+    padding-right: 20px;
+    grid-column: span 3;
+}
+
+.attributes-card__header .title {
+    font-size: 10px;
+    font-weight: bold;
+    color: #253262;
+}
+
+.attributes-card__header i {
+    color: #e1e1e3;
+    cursor: pointer;
+}
+
+.attributes-card__attribute-cell {
+    display: grid;
+    align-items: center;
+    justify-items: start;
+}
+
+.attributes-card__attribute-cell .title {
+    font-size: 9px;
+    color: #a0a4bc;
+}
+
+.attributes-card__attribute-cell .value {
+    font-size: 18px;
+    color: #253262;
+}
+
+.attributes-card__bid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+    grid-row: span 2;
+}
+
+.attributes-card__bid i {
+    font-size: 26px;
+    color: #277dff;
+}
+
+.attributes-card__bid .title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #253262;
+}
+
+.attributes-card__bid .price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #9ba1b7;
+}
+
+.attributes-card__bid .legend {
+    font-size: 10px;
+    color: #a8adc0;
+    text-align: center;
+    max-inline-size: 100px;
+    overflow-wrap: break-word;
 }
 
 .auction-card {

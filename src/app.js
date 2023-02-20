@@ -5,14 +5,16 @@ let collapseButton = document.querySelector('.arrow') // The button that collaps
 let sideMenuName = document.querySelector('.menu-name__label') // The name of the side menu
 let buttonsContainer = document.querySelector('.navbar__buttons-container') // The container of the nav buttons in the side menu
 let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected.
-let pokemon = getPokemonData(9) // The currently displayed Pokemon.
-let pokemonName = document.querySelector('#pokemonName')
-let pokemonType = document.querySelector('#pokemonType')
-let pokemonAbility = document.querySelector('#pokemonAbility')
-let pokemonHeight = document.querySelector('#pokemonHeight')
-let pokemonExperience = document.querySelector('#pokemonExperience')
-let pokemonImg = document.querySelector('#pokemonImg')
-let pokemonCardName = document.querySelector('#pokemonCardName')
+let pokemon = getPokemonData(12) // The currently displayed Pokemon.
+let detailsPokemonName = document.querySelector('.pokemon-details__specie-info .pokemon-name')
+let detailsPokemonType = document.querySelector('.pokemon-details__specie-info .pokemon-type')
+let detailsPokemonAbility = document.querySelector('.pokemon-details__specie-info .pokemon-ability')
+let detailsPokemonHeight = document.querySelector('#detailsPokemonHeight')
+let detailsPokemonExperience = document.querySelector('#detailsPokemonExperience')
+let nameCardPokemonImg = document.querySelector('#nameCardPokemonImg')
+let nameCardPokemonName = document.querySelector('#nameCardPokemonName')
+let attributesCardPokemonHeight = document.querySelector('#attributesCardPokemonHeight')
+let attributesCardPokemonAge = document.querySelector('#attributesCardPokemonAge')
 
 const MENU_NAME = 'Coopang' // The name of the side menu.
 
@@ -66,13 +68,15 @@ function getPokemonData(pokemonId) {
 }
 
 function setPokemonAttributes() {
-    pokemonName.textContent = CapitalizeText(pokemon.name)
-    pokemonType.textContent = pokemon.types[0].type.name.toUpperCase()
-    pokemonAbility.textContent = CapitalizeText(pokemon.abilities[0].ability.name)
-    pokemonHeight.textContent = pokemon.height
-    pokemonExperience.textContent = pokemon.base_experience + ' Reviews'
-    pokemonImg.src = pokemon.sprites.front_default
-    pokemonCardName.textContent = CapitalizeText(pokemon.name) + ' ' + CapitalizeText(pokemon.types[0].type.name)
+    detailsPokemonName.textContent = CapitalizeText(pokemon.name)
+    detailsPokemonType.textContent = pokemon.types[0].type.name.toUpperCase()
+    detailsPokemonAbility.textContent = CapitalizeText(pokemon.abilities[0].ability.name)
+    detailsPokemonHeight.textContent = pokemon.height
+    detailsPokemonExperience.textContent = pokemon.base_experience + ' Reviews'
+    nameCardPokemonImg.src = pokemon.sprites.front_default
+    nameCardPokemonName.textContent = CapitalizeText(pokemon.name) + ' ' + CapitalizeText(pokemon.types[0].type.name)
+    attributesCardPokemonHeight.textContent = pokemon.height
+    attributesCardPokemonAge.textContent = pokemon.height + 13
 }
 
 function CapitalizeText(text) {
