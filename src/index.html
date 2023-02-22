@@ -79,7 +79,7 @@
                         <i class='bx bxs-star'></i>
                         <span id="detailsPokemonHeight"></span>
                     </div>
-                    <button>Save Item</button>
+                    <button class="shaded-button save-item_button">Save Item</button>
                     <span id="detailsPokemonExperience"></span>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                         <div class="attributes-card__bid">
                             <i class='bx bx-info-square'></i>
                             <span class="title">Highest Bid</span>
-                            <span id="attributesCardPokemonPrice"class="price"></span>
+                            <span id="attributesCardPokemonPrice" class="price"></span>
                             <span class="legend">You can bid bigger than this number</span>
                         </div>
                         <div class="attributes-card__attribute-cell">
@@ -130,7 +130,9 @@
                         <i class="fa-solid fa-ellipsis-vertical icon dot-icon"></i>
                     </div>
                     <img id="auctionCardPokemonImg" alt="back image of the pokemon">
-                    <input type="text" name="currency-field" id="auctionBid" value="" data-type="currency" placeholder=" $250.00" />
+                    <input type="text" name="currency-field" id="auctionBid" class="actuion-card__auction-input"
+                        value="" data-type="currency" placeholder=" $250.00" maxlength="13" />
+                    <button class="shaded-button actuion-card__bid-button">Place Bid</button>
                 </div>
             </div>
         </div>

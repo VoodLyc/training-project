@@ -112,7 +112,7 @@ function setPokemonAttributes() {
 function resetPosition(object, actualPosition, max, min) {
     let position = actualPosition
 
-    if(actualPosition > max) {
+    if (actualPosition > max) {
         position = max
     }
     else if (actualPosition < min) {
@@ -138,7 +138,7 @@ function formatBid(event) {
     if (isNumber) {
         // Checks if the characters after the "." are only zeros
         const areZeros = /^[0]+$/i.test(zeros)
-        if(zeros && !areZeros) {
+        if (zeros && !areZeros) {
             // Adds the non-zero numbers at the end of the value
             value += event.key
         }

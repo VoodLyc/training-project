@@ -5,7 +5,7 @@ export const capitalizeText = (text) => {
 
 export const removeNonNumericCharacters = (text) => {
   let nonNumericCharacters = ''
-  if(text) {
+  if (text) {
     nonNumericCharacters = text.replace(/[^\d]/g, '')
   }
 
