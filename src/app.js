@@ -6,10 +6,13 @@ let collapseButton = document.querySelector('.arrow') // The button that collaps
 let sideMenuName = document.querySelector('.menu-name__label') // The name of the side menu
 let buttonsContainer = document.querySelector('.navbar__buttons-container') // The container of the nav buttons in the side menu
 let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected
-let pokemon = getPokemonData(203) // The currently displayed Pokemon
+let pokemon = getPokemonData(22) // The currently displayed Pokemon
 let auctionBid = document.querySelector('#auctionBid') // The input to the enter the bid on the auction card
+let test = document.querySelector('#test')
+let testName = document.querySelector('#testName')
 
 const MENU_NAME = 'Coopang' // The name of the side menu
+const MAX_POKEMON_ID = 1008
 
 function collapseSideMenu() {
     collapseButton.classList.toggle('arrow--right')
@@ -107,9 +110,11 @@ function setPokemonAttributes() {
     setPokemonNameCard()
     setPokemonAttributesCard()
     setPokemonAuctionCard()
+    test.src = pokemon.sprites.front_shiny
+    testName.textContent = capitalizeText(pokemon.name)
 }
 
-function resetPosition(object, actualPosition, max, min) {
+function resetPosition(element, actualPosition, max, min) {
     let position = actualPosition
 
     if (actualPosition > max) {
@@ -119,8 +124,8 @@ function resetPosition(object, actualPosition, max, min) {
         position = min
     }
 
-    object.selectionStart = position
-    object.selectionEnd = position
+    element.selectionStart = position
+    element.selectionEnd = position
 }
 
 function formatBid(event) {
@@ -151,6 +156,14 @@ function formatBid(event) {
     let min = 1
     event.target.value = value
     resetPosition(event.target, newPosition, max, min)
+}
+
+function calculatePokemonListIndex(pokemonId) {
+    
+}
+
+function getPokemonList(pokemonId) {
+
 }
 
 collapseButton.addEventListener('click', collapseSideMenu)
