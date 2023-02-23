@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coopang</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" href="../images/logo.png">
 </head>
@@ -51,8 +54,7 @@
             <div class="user">
                 <div class="user-picture">
                     <img src="https://images.generated.photos/3MPyvhym-oYQPHqv4u9VSC5s-LGb03Ay7PhKOikovOs/rs:fit:256:256/czM6Ly9pY29uczgu/Z3Bob3Rvcy1wcm9k/LnBob3Rvcy92M18w/NjI3ODU4LmpwZw.jpg"
-                        class="user-picture__img"
-                        alt="User profile picture">
+                        class="user-picture__img" alt="User profile picture">
                 </div>
                 <div class="user-details">
                     <span class="user-details__name">Zaki Deanra</span>
@@ -64,11 +66,78 @@
             <div class="main-content__header">
                 <button class="arrow">
                     <i class='bx bx-chevron-left'></i>
-                </button>                
+                </button>
+            </div>
+            <div class="pokemon-details">
+                <div class="pokemon-details__specie-info">
+                    <span class="pokemon-name"></span>
+                    <span class="pokemon-type"></span>
+                    <span class="pokemon-ability"></span>
+                </div>
+                <div class="pokemon-details__attributes-info">
+                    <div class="stars">
+                        <i class='bx bxs-star'></i>
+                        <span id="detailsPokemonHeight"></span>
+                    </div>
+                    <button class="shaded-button save-item_button">Save Item</button>
+                    <span id="detailsPokemonExperience"></span>
+                </div>
+            </div>
+            <div class="cards-container">
+                <div class="card name-card">
+                    <div class="name-card__content">
+                        <img id="nameCardPokemonImg" alt="front image of the pokemon">
+                        <span id="nameCardPokemonName"></span>
+                        <i class="fa-sharp fa-solid fa-circle-play"></i>
+                    </div>
+                </div>
+                <div class="card attributes-card">
+                    <div class="attributes-card__content">
+                        <div class="attributes-card__header">
+                            <span class="card-header-title">INFORMATIONS</span>
+                            <i class="fa-solid fa-ellipsis-vertical dot-icon"></i>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">LENGHT</span>
+                            <span class="value"><b id="attributesCardPokemonHeight"></b> cm</span>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">AGE</span>
+                            <span class="value"><b id="attributesCardPokemonAge"></b> month</span>
+                        </div>
+                        <div class="attributes-card__bid">
+                            <i class='bx bx-info-square'></i>
+                            <span class="title">Highest Bid</span>
+                            <span id="attributesCardPokemonPrice" class="price"></span>
+                            <span class="legend">You can bid bigger than this number</span>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">GENDER</span>
+                            <b id="attributesCardPokemonGender" class="value">Male</b>
+                        </div>
+                        <div class="attributes-card__attribute-cell">
+                            <span class="title">TIME LEFT</span>
+                            <progress max="10" value="7" class="progress-bar"></progress>
+                            <b id="attributesCardPokemonTime" class="value value--small">21hr left</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="card auction-card">
+                    <div class="auction-card__header">
+                        <div class="title-container">
+                            <span class="card-header-title">AUCTION</span>
+                        </div>
+                        <i class="fa-solid fa-ellipsis-vertical icon dot-icon"></i>
+                    </div>
+                    <img id="auctionCardPokemonImg" alt="back image of the pokemon">
+                    <input type="text" name="currency-field" id="auctionBid" class="actuion-card__auction-input"
+                        value="" data-type="currency" placeholder=" $250.00" maxlength="13" />
+                    <button class="shaded-button actuion-card__bid-button">Place Bid</button>
+                </div>
             </div>
         </div>
     </div>
-    <script src="./app.js"></script>
+    <script type="module" src="./app.js"></script>
 </body>
 
 </html>
