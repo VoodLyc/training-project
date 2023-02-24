@@ -8,11 +8,12 @@ let buttonsContainer = document.querySelector('.navbar__buttons-container') // T
 let selectedButton = 'navbar-btn-1' // The id of the button that is currently selected
 let pokemon = getPokemonData(22) // The currently displayed Pokemon
 let auctionBid = document.querySelector('#auctionBid') // The input to the enter the bid on the auction card
-let test = document.querySelector('#test')
-let testName = document.querySelector('#testName')
 
 const MENU_NAME = 'Coopang' // The name of the side menu
-const MAX_POKEMON_ID = 1008
+const MAX_POKEMON_ID = 1008 // The maximum value for id
+const MIN_POKEMON_ID = 1 // The minimun value for id
+const PREVIEW_LIST_UP_POKEMONS = 1 // Number of pokemon with a higher id that the chosen one
+const PREVIEW_LIST_DOWN_POKEMONS = 2 // Number of pokemon with a lower id that the chosen one
 
 function collapseSideMenu() {
     collapseButton.classList.toggle('arrow--right')
@@ -57,6 +58,7 @@ function getPokemonData(pokemonId) {
         .then((data) => {
             pokemon = data
             setPokemonAttributes()
+            getPokemonList(pokemonId)
         })
         .catch((e) => {
             console.log(e)
@@ -110,8 +112,6 @@ function setPokemonAttributes() {
     setPokemonNameCard()
     setPokemonAttributesCard()
     setPokemonAuctionCard()
-    test.src = pokemon.sprites.front_shiny
-    testName.textContent = capitalizeText(pokemon.name)
 }
 
 function resetPosition(element, actualPosition, max, min) {
@@ -152,18 +152,63 @@ function formatBid(event) {
     value = formatCurrency(value)
     // Resets the pointer position
     let newPosition = value.length - valueInitialLength + pointerInitialPosition
+    // Excludes the ".00"
     let max = value.length - 3
+    // Excludes the "$"
     let min = 1
     event.target.value = value
     resetPosition(event.target, newPosition, max, min)
 }
 
 function calculatePokemonListIndex(pokemonId) {
-    
+    let min = pokemonId - PREVIEW_LIST_DOWN_POKEMONS
+    let max = pokemonId + PREVIEW_LIST_UP_POKEMONS
+
+    if (min < MIN_POKEMON_ID) {
+        min = MIN_POKEMON_ID
+        max += PREVIEW_LIST_DOWN_POKEMONS - Math.abs(pokemonId - MIN_POKEMON_ID)
+    }
+    else if (max > MAX_POKEMON_ID) {
+        max = MAX_POKEMON_ID
+        min -= PREVIEW_LIST_UP_POKEMONS + Math.abs(pokemonId - MAX_POKEMON_ID)
+    }
+
+    return { min, max }
+}
+
+function createArrayRange(min, max, number) {
+    let array = Array(max - min + 1).fill().map((value, i) => i + min);
+    let index = array.indexOf(number)
+    array.splice(index, 1)
+    return array
 }
 
 function getPokemonList(pokemonId) {
+    let limit = calculatePokemonListIndex(pokemonId)
+    let pokemons = createArrayRange(limit.min, limit.max, pokemonId)
+    let previewPokemonCards = document.querySelectorAll('.pokemon-preview-card') // The pokemon cards in the right side
 
+    for (const [i, card] of previewPokemonCards.entries()) {
+        getPokemon(pokemons[i])
+            .then((data) => {
+                setPokemonPreviewCard(card, data)
+            })
+            .catch((e) => {
+                console.log(e)
+            })
+    }
+}
+
+function setPokemonPreviewCard(card, pokemon) {
+    let newCard = card.cloneNode(true)
+    let children = newCard.children
+    let pokemonImg = children[0].firstElementChild
+    let pokemonName = children[1]
+
+    pokemonImg.src = pokemon.sprites.front_default
+    pokemonName.textContent = capitalizeText(pokemon.name)
+    newCard.addEventListener('click', () => getPokemonData(pokemon.id))
+    card.replaceWith(newCard)
 }
 
 collapseButton.addEventListener('click', collapseSideMenu)
