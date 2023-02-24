@@ -199,6 +199,7 @@ img {
 .main-content {
     height: 100%;
     width: 100%;
+    overflow: scroll;
     background-color: #efefef;
 }
 
@@ -568,7 +569,7 @@ img {
 
 .side-list {
     height: 100%;
-    width: 400px;
+    width: 300px;
     display: flex;
     flex-direction: column;
     border-left: 1px solid rgba(0, 0, 0, .08);
@@ -576,7 +577,7 @@ img {
 }
 
 .side-list__header {
-    width: 350px;
+    width: 300px;
     height: 150px;
     min-height: 100px;
     display: flex;
@@ -607,7 +608,9 @@ img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
     gap: 20px;
+    overflow: scroll;
 }
 
 .pokemon-preview-card {
@@ -616,7 +619,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: start;
-    gap: 10px;
+    gap: 5px;
     cursor: pointer;
     background-color: white;
 }
@@ -632,7 +635,7 @@ img {
     margin-top: 10px;
     border-radius: 10px;
     border: 1px solid rgba(0, 0, 0, .01);
-    background-color:#efefef;
+    background-color: #efefef;
 }
 
 .pokemon-preview-card img {
